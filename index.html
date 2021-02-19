@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from shrimpfarm.finance/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Feb 2021 19:56:41 GMT -->
+<head>
+	<meta charset="utf-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="Farm Shrimp to earn BNB" name="description">
+	<meta name="image" content="assets/img/og-image.png">
+    <!-- opengraph image -->
+	<meta property="og:image" content="assets/img/og-image.png">
+	<meta property="og:title" content="Shrimp Finance">
+  <meta property="og:type" content="website"/>
+	<meta property="og:description" content="Farm Shrimp to earn BNB">
+	<meta property="og:url" content="index.html">
+	<!-- Twitter meta -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="index.html">
+	<meta name="twitter:title" content="Shrimp Finance">
+	<meta name="twitter:description" content="Farm Shrimp to earn BNB">
+	<meta name="twitter:image" content="assets/img/og-image.png">
+	<!-- favicon files -->
+	<link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16" />	
+	<meta name="msapplication-TileColor" content="#2b5797">
+	<meta name="theme-color" content="#181a18">
+	<title>Shrimp Finance</title>
+	<!-- bootstrap core CSS -->
+	<link href="dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+	<link href="jumbotron-narrow.css" rel="stylesheet">
+	<link href="custom.css" rel="stylesheet">
+	<link href="assets/fonts/fonts.min.css" rel="stylesheet" type="text/css">
+	<!-- scripts -->
+	<script src="assets/js/ie-emulation-modes-warning.js">
+	</script>
+	<script src="assets/js/web3.min.js">
+	</script>
+	<script src="interface.js">
+	</script>
+	<script src="maind006.js?binancechain=added">
+	</script>
+</head>
+<body>
+	<div class="modal" id="myModal">
+		<div class="modal-content">
+			<div id="modal-internal"></div>
+		</div>
+	</div>
+	<div class="container">
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div></div>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Shrimp Finance</a>
+    </div>
+
+    <div class="mobile-align">
+      <ul class="nav navbar-nav navbar-right font-weight-normal">
+        <li><a class="social-pad" href="https://discord.gg/WyjQXTsbQJ"><img alt="discord" class="social-icons" src="assets/img/social-icons/discord.svg"><span class="hide-mobile">Discord</span></a></li>
+        <li><a class="social-pad" href="https://t.me/shrimpfarmfinance"><img alt="telegram" class="social-icons" src="assets/img/social-icons/telegram.svg"><span class="hide-mobile">Telegram</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div>
+  <ul style="display:none;" class="nav nav-tabs nav-justified" id="myTabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" id="shrimp-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Shrimp Farm</a></li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade active in" role="tabpanel" id="home" aria-labelledby="shrimp-tab">
+      <!-- shrimp farm -->
+      <div class="jumbotron">
+  			<div class="container-fluid shrimp-tally-container">
+  				<div class="row">
+  					<div class="col-md-12">
+  						<h2 class="tally-text">You have <span class="numshrimp">0</span> Shrimp</h2>
+  					</div>
+  				</div>
+  			</div>
+  			<div class="container">
+  				<div class="row">
+  					<div class="col-md-6 nopad-left nopad-lr">
+  						<div class="prod-contain-top">
+  							<img alt="Shrimp" class="main-img" src="assets/img/shrimp.svg">
+  							<h2>Producing</h2>
+  						</div>
+  						<div class="prod-contain-bottom">
+  							<h2><span id="production">0</span></h2>
+  							<p class="pphr">eggs per hour</p>
+  							<p class="mw-250"><br/>
+                  <span id="sellsforexample"></span>
+                </p>
+  						</div>
+  					</div>
+  					<div class="col-md-6 nopad-right nopad-lr">
+  						<div class="hold-contain-top">
+  							<img alt="Shrimp" class="main-img" src="assets/img/eggs.svg">
+  							<h2>Holding</h2>
+  						</div>
+  						<div class="hold-contain-bottom">
+  							<h2><span class="numeggs">0</span></h2>
+  							<p class="pphr">eggs in hatchery</p>
+  							<p class="mw-250"><br/><span id="timeuntilfull">?</span><br>
+  							until hatchery full</p>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  			<div class="container altcolor">
+  				<div class="row">
+  					<div class="col-md-12">
+  						<p><a class="btn btn-lg btn-hatch" onclick="hatchEggs1()" role="button">Hatch <span id="hatchshrimpquantity">?</span> Eggs</a></p>
+  					</div>
+  				</div>
+  				<div class="row">
+  					<div class="col-md-12">
+  						<p><a class="btn btn-lg btn-sell" onclick="sellEggs(displayTransactionMessage)" role="button">Sell For <span id="sellprice">?</span> BNB</a></p>
+  					</div>
+					</div>
+					<br>
+  				<div class="col-md-12">
+  					<p><span id="contractBal">Contract Balance: ?</span></p>
+  				</div>
+                <div class="col-md-12">
+  					<p><span id="userTrx">Your Balance: ?</span></p>
+  				</div>
+  			</div>
+  			<div class="container buy-contain-full">
+  				<div class="row">
+  					<div class="col-md-6 buy-contain-left"><img alt="bnb" class="bnb-logo" height="80" src="assets/img/bnb.png" width="auto"></div>
+  					<div class="col-md-6 lr-pad">
+  						<div class="spend-input">
+  							<input class="form-control" id="ethtospend" onchange="updateBuyPrice()" step="1" type="number" value="1"> <span class="bnb-text">BNB</span>
+  						</div><a class="btn btn-lg btn-buy" onclick="buyEggs2()" role="button">Buy <span id="eggstobuy">?</span> shrimp</a>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+    </div>
+    
+		<footer class="footer">
+
+
+<div class="modal fade information-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Exponents Chart</h3>
+      </div>
+      <table class="table">
+  <thead>
+    <tr>
+      <th class="pad-15">Scientific Notation</th>
+      <th>American Name (short form)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th class="pad-15">10<sup>6</sup></th>
+      <td>Million</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>9</sup></th>
+      <td>Billion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>12</sup></th>
+      <td>Trillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>15</sup></th>
+      <td>Quadrillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>16</sup></th>
+      <td>Quintillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>21</sup></th>
+      <td>Sextillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>24</sup></th>
+      <td>Septillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>27</sup></th>
+      <td>Octillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>30</sup></th>
+      <td>Nonillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>33</sup></th>
+      <td>Decillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>36</sup></th>
+      <td>Undecillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>39</sup></th>
+      <td>Duodecillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>42</sup></th>
+      <td>Tredecillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>45</sup></th>
+      <td>Quattuordecillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>48</sup></th>
+      <td>Quindecillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>51</sup></th>
+      <td>Sexdecillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>54</sup></th>
+      <td>Septendecillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>57</sup></th>
+      <td>Octodecillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>60</sup></th>
+      <td>Novemdecillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>63</sup></th>
+      <td>Vigintillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>69</sup></th>
+      <td>Duovigintillion</td>
+    </tr>
+    <tr>
+      <th class="pad-15">10<sup>72</sup></th>
+      <td>Trevigintillion</td>
+    </tr>
+		<tr>
+			<th class="pad-15">10<sup>78</sup></th>
+			<td>Quattuorvigintillion</td>
+		</tr>
+		<tr>
+			<th class="pad-15">10<sup>78</sup></th>
+			<td>Quattuorvigintillion</td>
+		</tr>
+		<tr>
+			<th class="pad-15">10<sup>81</sup></th>
+			<td>Sexvigintillion</td>
+		</tr>
+		<tr>
+			<th class="pad-15">10<sup>84</sup></th>
+			<td>Septenvigintillion</td>
+		</tr>
+		<tr>
+			<th class="pad-15">10<sup>87</sup></th>
+			<td>Octovigintillion</td>
+		</tr>
+		<tr>
+			<th class="pad-15">10<sup>90</sup></th>
+			<td>Novemvigintillion</td>
+		</tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<h4>Earn BNB by farming shrimp!</h4>
+					<p>To play, just purchase some shrimp.
+                    <br/>Shrimp produce eggs at a rate of one per shrimp per day. <br/>E.g: 24 Shrimp produce 24 eggs per day, or 1 per hour.
+                    </p>
+                    <h4>Sustainable Economics</h4>
+                    <p>The contract market automatically inflates as users buy and sell, which maintains contract balance and prevents early buyers from profiting forever.
+                    </p>
+                    
+				</div>
+				<div class="col-lg-6">
+					<h4>Game Info</h4>
+					<p>The value of eggs rises and falls depending on the actions of players. Profit is made by buying before others.</p>
+                    <button type="button" class="btn" data-toggle="modal" data-target=".information-modal">Number Table</button>
+					<h4>Referrals</h4>
+					<p>Earn <b>10%</b> of the number of all eggs hatched by anyone who starts playing using your link: <a id="playerreflink" onclick="copyRef()">?
+					<p></p><input id="copytextthing" style="display:none;" type="text" value="Hello Worldfdgerh"></a></p>
+				</div>
+                <div>
+                <br>
+                <h4>How To Farm Effectively</h4>
+                <p>Shrimp Farm is a shrimp farming simulator. Its easy to play!
+
+                </p><p>Step 1) Purchase Shrimp with BNB.
+                </p><p>Step 2) Your shrimp will start to produce eggs. You can hatch your eggs to birth more shrimp - in turn, this increases your egg generation rate.
+                </p><p>Step 3) Alternatively, you can sell your eggs back to the contract for BNB. You cannot sell back shrimp, only eggs!
+                </p>
+                <p>This process continues until you've produced as many eggs as you have shrimp - this takes 24 hours, after which you'll stop generating eggs until you've either hatched or sold them. You can sell or hatch eggs at any time before this 24 hours is up.</p>
+                <p>The contract is open source and visible <a href="https://www.bscscan.com/address/0xc9c7444706f9e888062ab43ae5fcaa92be7bce3c#code">here</a>. There are no functions that the dev can use to drain; the BNB in the contract can only be attained by selling eggs.
+                </p>
+                <p>Don't forget! You can get FREE eggs by referring your friends! Share the link above to get 10% of all the eggs hatched by anyone who starts playing with your link! For those of you considering using/advertising referral links - they're sticky: once you've used someone's, you can't change it!
+                </p>
+                <p>TLDR: Buy Shrimp > Farm Eggs > Hatch Shrimp > Sell Eggs > Profit(?)</p>
+                <p>Good luck!</p>
+
+                </div>
+			</div>
+		</footer>
+	</div>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="assets/js/ie10-viewport-bug-workaround.js">
+	</script>
+	<script src="../ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+	</script>
+	<script src="../maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	</script>
+	<script src="../ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+	</script>
+</body>
+
+<!-- Mirrored from shrimpfarm.finance/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Feb 2021 19:57:15 GMT -->
+</html>
